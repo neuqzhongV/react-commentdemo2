@@ -22,8 +22,6 @@ export default class Counter extends React.Component{
     componentWillMount(){
         this.setState({
             count: this.state.count + 1
-        },function(){
-            console.log('componentWillMount' + document.getElementById('h1').innerText)
         })
     }
 
@@ -31,15 +29,17 @@ export default class Counter extends React.Component{
     render(){
         // 必须返回一个合法的虚拟DOM或null
         return <div>
-            <input type="button" value="我是小黄，打我呀，你打我我就+1"/>
+            <input ref="btnAdd" id="btn" type="button" value="我是小黄，打我呀，你打我我就+1"/>
             <h1 id="h1">统计小黄总共被打了几次：{this.state.count}</h1>
         </div>
     }
     componentDidMount(){
-        this.setState({
+        this.refs.btnAdd.onclick = ()=>{
+            this.setState({
             count: this.state.count + 1
         },function(){
             console.log('componentDidMount' + document.getElementById('h1').innerText)
         })
+        } 
     }
 }
