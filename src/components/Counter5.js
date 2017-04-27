@@ -46,12 +46,12 @@ export default class Counter extends React.Component{
     }
 
     //组件将要被更新
-    componentWillUpdata(){
-        console.log(this.refs.h1.innerText)
+    componentWillUpdate(){
+        console.log("will" + this.refs.h1.innerText)
     }
 
     //组件已经完成更新
     componentDidUpdate(){
-        // console.log(this.refs.h1.innerText)
+        console.log("did" + this.refs.h1.innerText)
     }
 }
